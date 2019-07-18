@@ -1,0 +1,21 @@
+//: initialization/NewVarArgs.java
+// Using array syntax to create variable argument lists.
+
+public class NewVarArgs {    // 可变参数列表
+    static void printArray(Object... args){   // 所有类都直接或间接继承Object类
+        for(Object obj : args)
+            System.out.print(obj + " ");
+        System.out.println();
+    }
+    public static void main(String[] args){
+        // Can take individual elements:
+        printArray(new Integer(47), new Float(3.14), new Double(11.11));
+        printArray(47, 3.14F, 11.11);
+        printArray("one", "two", "three");
+        printArray(new A(), new A(), new A());
+        // Or an array
+        printArray((Object[])new Integer[]{1, 2, 3, 4, 5});
+        printArray(); // Empty list is ok
+
+    }
+}
